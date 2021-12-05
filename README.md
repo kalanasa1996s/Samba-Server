@@ -22,18 +22,35 @@ File Sharing Server
       *. private - mkdir private
       *. public  - mkdir public
       
-5.Change the permission of the public directory for public access
+5.Change the permission of the public directory for public access and change private as private access
       
       sudo chmod 777 public
+      sudo chmod 777 privte (but cat access others)
+
       
 6.Add a detalis in to the samba config file
 
-    suod nano /etc/samba/smb.conf
+    sudo nano /etc/samba/smb.conf
     
     [My Public share]
     path = /home/test/public
     guest ok = yes
     writable = yes
     
+--------------------------------------------------------------   
+7. # File Or Directory Access For Special User
+
+1.Create New User Account and add new user in samba database
+  
+  sudo adduser sam
+  sudo smbpasswd -a sam
+  
+2.Config the private Directory for New User "Sam"
+
+    sudo nano /etc/samba/smb.conf
     
-      
+    
+    [Sam Private Share]
+    path = /home/test/priavte
+    valid users = sam
+    writable = yes
