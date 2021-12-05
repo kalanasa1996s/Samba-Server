@@ -25,7 +25,7 @@ File Sharing Server
 5.Change the permission of the public directory for public access and change private as private access
       
       sudo chmod 777 public
-      sudo chmod 777 privte (but cat access others)
+      sudo chmod 777 privte (but can't access others)
 
       
 6.Add a detalis in to the samba config file
